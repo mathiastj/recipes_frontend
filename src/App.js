@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import PostIcon from '@material-ui/icons/Book';
+import UserIcon from '@material-ui/icons/Group';
+import { Admin, Resource, ListGuesser } from 'react-admin';
+import {RecipeList } from './components/recipes'
+import hasuraDataProvider from 'ra-data-hasura';
+import authProvider from './authProvider'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const key = localStorage.getItem('key')
+const headers = {'content-type': 'application/json', 'x-hasura-admin-secret': key};
+
+const App = () => <Admin
+  dataProvider={hasuraDataProvider('https://floating-meadow-53258.herokuapp.com', headers)}
+  authProvider={authProvider}
+  >
+  <Resource name="recipes" list={RecipeList} />
+</Admin>
 
 export default App;
