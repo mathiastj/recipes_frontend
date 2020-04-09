@@ -1,5 +1,6 @@
 import React from 'react';
-import { Filter, SelectInput, ReferenceInput, Show, NumberInput, RichTextField, ShowView, SimpleShowLayout, Create, Edit, TextInput, SimpleForm, NumberField, List, Datagrid, TextField } from 'react-admin';
+import { ReferenceField, Filter, SelectInput, ReferenceInput, Show, NumberInput, RichTextField, ShowView, SimpleShowLayout, Create, Edit, TextInput, SimpleForm, NumberField, List, Datagrid, TextField } from 'react-admin';
+import RecipeShowTitle from './recipeShowTitle'
 
 const PostTitle = ({ record }) => {
   return <span>{record ? `${record.title}` : ''}</span>;
@@ -8,9 +9,9 @@ const PostTitle = ({ record }) => {
 const RecipeFilter = (props) => (
   <Filter {...props}>
       <TextInput label="Search" source="title" alwaysOn />
-      {/* <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
+      <ReferenceInput label="Ingredients" source="ingredients" reference="ingredients" allowEmpty>
           <SelectInput optionText="name" />
-      </ReferenceInput> */}
+      </ReferenceInput>
   </Filter>
 );
 
@@ -19,17 +20,23 @@ export const RecipeList = props => (
         <Datagrid rowClick="show">
             <TextField source="title" />
             <NumberField source="rating" />
-            <TextField source="ingredients" />
-            <TextField source="directions" />
+            <NumberField source="servings" />
+            <ReferenceField source="category_id" reference="categories">
+              <TextField source="name" />
+            </ReferenceField>
         </Datagrid>
     </List>
 );
 
+
+
 export const RecipeShow = props => (
   <Show {...props} title={<PostTitle/>}>
       <SimpleShowLayout>
-          <TextField source="title" />
+          <RecipeShowTitle source="title"/>
           <NumberField source="rating" />
+          <NumberField source="servings" />
+          <NumberField source="duration" />
           <TextField component="pre" source="ingredients" />
           <TextField component="pre" source="directions" />
       </SimpleShowLayout>
@@ -40,6 +47,11 @@ export const RecipeEdit = props => (
   <Edit {...props}>
       <SimpleForm>
           <NumberInput source="rating" />
+          <NumberInput source="servings" />
+          <NumberInput source="duration" />
+          <ReferenceInput source="category_id" reference="categories">
+               <SelectInput optionText="name" />
+            </ReferenceInput>
           <TextInput multiline source="ingredients" />
           <TextInput source="title" />
           <TextInput multiline source="directions" />

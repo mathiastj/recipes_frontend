@@ -4,6 +4,7 @@ import UserIcon from '@material-ui/icons/Group';
 import buildHasuraProvider from 'ra-data-hasura-graphql';
 import { Admin, Resource, EditGuesser, ListGuesser, ShowGuesser } from 'react-admin';
 import {RecipeList, RecipeEdit, RecipeCreate, RecipeShow } from './components/recipes'
+import {CategoryCreate } from './components/categories'
 import authProvider from './authProvider'
 import ApolloClient from 'apollo-boost'
 
@@ -37,6 +38,7 @@ class App extends Component {
         authProvider={authProvider}
         >
         <Resource name="recipes" show={RecipeShow} list={RecipeList} edit={RecipeEdit} create={RecipeCreate}/>
+        <Resource name="categories" show={ShowGuesser} list={ListGuesser} edit={EditGuesser} create={CategoryCreate} />
       </Admin>
       );
   }
