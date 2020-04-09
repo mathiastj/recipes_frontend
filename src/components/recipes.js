@@ -1,6 +1,7 @@
 import React from 'react';
 import { ReferenceField, Filter, SelectInput, ReferenceInput, Show, NumberInput, RichTextField, ShowView, SimpleShowLayout, Create, Edit, TextInput, SimpleForm, NumberField, List, Datagrid, TextField } from 'react-admin';
-import RecipeShowTitle from './recipeShowTitle'
+import RecipeShowTitle from './recipeViews/recipeShowTitle'
+import RecipeShowHeader from './recipeViews/recipeShowHeader'
 
 const PostTitle = ({ record }) => {
   return <span>{record ? `${record.title}` : ''}</span>;
@@ -34,9 +35,7 @@ export const RecipeShow = props => (
   <Show {...props} title={<PostTitle/>}>
       <SimpleShowLayout>
           <RecipeShowTitle source="title"/>
-          <NumberField source="rating" />
-          <NumberField source="servings" />
-          <NumberField source="duration" />
+          <RecipeShowHeader />
           <TextField component="pre" source="ingredients" />
           <TextField component="pre" source="directions" />
       </SimpleShowLayout>
