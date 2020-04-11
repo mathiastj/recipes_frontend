@@ -58,8 +58,8 @@ export const RecipeShow = (props) => (
     <SimpleShowLayout>
       <RecipeShowTitle source="title" />
       <RecipeShowHeader />
-      <RichTextField component="pre" source="ingredients" />
-      <RichTextField component="pre" source="directions" />
+      <RichTextField source="ingredients" />
+      <RichTextField source="directions" />
     </SimpleShowLayout>
   </Show>
 )
