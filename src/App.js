@@ -1,4 +1,3 @@
-import { withRouter } from "react-router-dom";
 import React, {Component} from 'react';
 import buildHasuraProvider from 'ra-data-hasura-graphql';
 import { Admin, Resource, EditGuesser, ListGuesser, ShowGuesser } from 'react-admin';
@@ -52,10 +51,6 @@ class App extends Component {
 
   render() {
       const { dataProvider } = this.state;
-      if (this.props.location.pathname !== '/login' && dataProvider === preAuthDataProvider && localStorage.getItem('key')) {
-        // Horrible hack to force getting the dataProvider with the just entered secret
-        this.setState({dataProvider: null})
-      }
 
       if (!dataProvider) {
           return <div>Loading</div>;
@@ -66,11 +61,11 @@ class App extends Component {
         dataProvider={dataProvider}
         authProvider={authProvider}
         >
-        <Resource name="recipes" show={RecipeShow} list={RecipeList} edit={RecipeEdit} create={RecipeCreate}/>
-        <Resource name="categories" show={ShowGuesser} list={ListGuesser} edit={EditGuesser} create={CategoryCreate} />
-      </Admin>
+          <Resource name="recipes" show={RecipeShow} list={RecipeList} edit={RecipeEdit} create={RecipeCreate}/>
+          <Resource name="categories" show={ShowGuesser} list={ListGuesser} edit={EditGuesser} create={CategoryCreate} />
+        </Admin>
       );
   }
 }
 
-export default withRouter(App);
+export default App;

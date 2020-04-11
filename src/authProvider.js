@@ -8,6 +8,8 @@ export default {
     // If somebody uses the special username they still won't know the password
     // Thus the page will just keep spitting out an error
     localStorage.setItem('key', password);
+    // Hack to force App to update to get the proper dataProvider
+    window.location.reload()
     return Promise.resolve();
   },
   // called when the user clicks on the logout button
