@@ -72,7 +72,7 @@ export const RecipeEdit = (props) => (
       <TextInput source="title" />
       <NumberInput source="rating" validate={validateRating} />
       <NumberInput source="servings" />
-      <NumberInput source="duration" />
+      <TextInput source="duration_free" label="Duration" />
       <ReferenceInput source="category_id" reference="categories">
         <SelectInput optionText="name" />
       </ReferenceInput>

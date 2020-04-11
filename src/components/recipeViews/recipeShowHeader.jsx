@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Stars from '../stars'
@@ -26,14 +27,14 @@ const useStyles = makeStyles({
 const RecipeShowHeader = (props) => {
   const classes = useStyles()
   const { record } = props
-  const { rating, servings, duration } = record
+  const { rating, servings, duration_free } = record
   return (
     <div className={classes.root}>
       <span className={classes['text-left']}>
         <Stars rating={rating} />
       </span>
       <span className={classes['text-center']}>{servings} servings</span>
-      <span className={classes['text-right']}>{duration} minutes</span>
+      <span className={classes['text-right']}>{duration_free}</span>
     </div>
   )
 }
