@@ -1,7 +1,9 @@
 import React from 'react';
-import { ReferenceField, Filter, SelectInput, ReferenceInput, Show, NumberInput, RichTextField, ShowView, SimpleShowLayout, Create, Edit, TextInput, SimpleForm, NumberField, List, Datagrid, TextField } from 'react-admin';
+import { minValue, maxValue, number, ReferenceField, Filter, SelectInput, ReferenceInput, Show, NumberInput, RichTextField, ShowView, SimpleShowLayout, Create, Edit, TextInput, SimpleForm, NumberField, List, Datagrid, TextField } from 'react-admin';
+import RichTextInput from 'ra-input-rich-text';
 import RecipeShowTitle from './recipeViews/recipeShowTitle'
 import RecipeShowHeader from './recipeViews/recipeShowHeader'
+import StarRow from './starRow'
 
 const PostTitle = ({ record }) => {
   return <span>{record ? `${record.title}` : ''}</span>;
@@ -9,8 +11,9 @@ const PostTitle = ({ record }) => {
 
 const RecipeFilter = (props) => (
   <Filter {...props}>
-      <TextInput label="Search" source="title" alwaysOn />
-      <ReferenceInput label="Ingredients" source="ingredients" reference="ingredients" allowEmpty>
+      <TextInput label="Search titles" source="title" alwaysOn />
+      <TextInput label="Search ingredients" source="ingredients" alwaysOn />
+      <ReferenceInput label="Category" source="category_id" reference="categories" allowEmpty>
           <SelectInput optionText="name" />
       </ReferenceInput>
   </Filter>
@@ -20,7 +23,7 @@ export const RecipeList = props => (
     <List {...props} filters={<RecipeFilter/>} >
         <Datagrid rowClick="show">
             <TextField source="title" />
-            <NumberField source="rating" />
+            <StarRow source="rating"/>
             <NumberField source="servings" />
             <ReferenceField source="category_id" reference="categories">
               <TextField source="name" />
@@ -36,24 +39,26 @@ export const RecipeShow = props => (
       <SimpleShowLayout>
           <RecipeShowTitle source="title"/>
           <RecipeShowHeader />
-          <TextField component="pre" source="ingredients" />
-          <TextField component="pre" source="directions" />
+          <RichTextField component="pre" source="ingredients" />
+          <RichTextField component="pre" source="directions" />
       </SimpleShowLayout>
   </Show>
 );
 
+const validateRating = [number(), minValue(1), maxValue(5)]
+
 export const RecipeEdit = props => (
   <Edit {...props}>
       <SimpleForm>
-          <NumberInput source="rating" />
+          <TextInput source="title" />
+          <NumberInput source="rating" validate={validateRating}/>
           <NumberInput source="servings" />
           <NumberInput source="duration" />
           <ReferenceInput source="category_id" reference="categories">
                <SelectInput optionText="name" />
             </ReferenceInput>
-          <TextInput multiline source="ingredients" />
-          <TextInput source="title" />
-          <TextInput multiline source="directions" />
+          <RichTextInput source="ingredients" />
+          <RichTextInput source="directions" />
       </SimpleForm>
   </Edit>
 );

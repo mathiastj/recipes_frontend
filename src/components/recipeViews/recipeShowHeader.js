@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Stars from '../stars'
 
 const useStyles = makeStyles({
     "text-left": {
@@ -27,7 +28,9 @@ const RecipeShowHeader = props => {
     const classes = useStyles();
     return (
       <div className={classes.root}>
-        <span className={classes["text-left"]}>{props.record.rating} stars</span>
+        <span className={classes["text-left"]}>
+          <Stars rating={props.record.rating}/>
+        </span>
         <span className={classes["text-center"]}>{props.record.servings} servings</span>
         <span className={classes["text-right"]}>{props.record.duration} minutes</span>
       </div>
