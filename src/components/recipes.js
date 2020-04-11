@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReferenceField, Filter, SelectInput, ReferenceInput, Show, NumberInput, RichTextField, ShowView, SimpleShowLayout, Create, Edit, TextInput, SimpleForm, NumberField, List, Datagrid, TextField } from 'react-admin';
+import { minValue, maxValue, number, ReferenceField, Filter, SelectInput, ReferenceInput, Show, NumberInput, RichTextField, ShowView, SimpleShowLayout, Create, Edit, TextInput, SimpleForm, NumberField, List, Datagrid, TextField } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
 import RecipeShowTitle from './recipeViews/recipeShowTitle'
 import RecipeShowHeader from './recipeViews/recipeShowHeader'
@@ -45,11 +45,13 @@ export const RecipeShow = props => (
   </Show>
 );
 
+const validateRating = [number(), minValue(1), maxValue(5)]
+
 export const RecipeEdit = props => (
   <Edit {...props}>
       <SimpleForm>
           <TextInput source="title" />
-          <NumberInput source="rating" />
+          <NumberInput source="rating" validate={validateRating}/>
           <NumberInput source="servings" />
           <NumberInput source="duration" />
           <ReferenceInput source="category_id" reference="categories">
