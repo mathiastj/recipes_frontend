@@ -1,5 +1,5 @@
 import React from 'react';
-import { Filter, SelectInput, ReferenceInput, Show, NumberInput, RichTextField, ShowView, SimpleShowLayout, Create, Edit, TextInput, SimpleForm, NumberField, List, Datagrid, TextField } from 'react-admin';
+import { DateField, Filter, SelectInput, ReferenceInput, Show, NumberInput, RichTextField, ShowView, SimpleShowLayout, Create, Edit, TextInput, SimpleForm, NumberField, List, Datagrid, TextField } from 'react-admin';
 
 export const CategoryCreate = props => (
   <Create {...props}>
@@ -7,4 +7,30 @@ export const CategoryCreate = props => (
           <TextInput source="name" />
       </SimpleForm>
   </Create>
+);
+
+export const CategoryList = props => (
+  <List {...props}>
+      <Datagrid rowClick="edit">
+          <TextField source="name" />
+      </Datagrid>
+  </List>
+);
+
+export const CategoryEdit = props => (
+  <Edit {...props}>
+      <SimpleForm>
+          <TextInput source="name" />
+      </SimpleForm>
+  </Edit>
+);
+
+export const CategoryShow = props => (
+  <Show {...props}>
+      <SimpleShowLayout>
+          <TextField source="name" />
+          <DateField source="created_at" />
+          <DateField source="updated_at" />
+      </SimpleShowLayout>
+  </Show>
 );

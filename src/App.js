@@ -2,10 +2,9 @@ import React, {Component} from 'react';
 import buildHasuraProvider from 'ra-data-hasura-graphql';
 import { Admin, Resource, EditGuesser, ListGuesser, ShowGuesser } from 'react-admin';
 import {RecipeList, RecipeEdit, RecipeCreate, RecipeShow } from './components/recipes'
-import {CategoryCreate } from './components/categories'
+import {CategoryCreate, CategoryList, CategoryEdit, CategoryShow } from './components/categories'
 import authProvider from './authProvider'
 import ApolloClient from 'apollo-boost'
-
 
 const preAuthDataProvider = {
   getList:    (resource, params) => Promise.resolve({data: []}),
@@ -62,7 +61,7 @@ class App extends Component {
         authProvider={authProvider}
         >
           <Resource name="recipes" show={RecipeShow} list={RecipeList} edit={RecipeEdit} create={RecipeCreate}/>
-          <Resource name="categories" show={ShowGuesser} list={ListGuesser} edit={EditGuesser} create={CategoryCreate} />
+          <Resource name="categories" show={CategoryShow} list={CategoryList} edit={CategoryEdit} create={CategoryCreate} />
         </Admin>
       );
   }
