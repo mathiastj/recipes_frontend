@@ -20,7 +20,7 @@ const RecipeFilter = (props) => (
 );
 
 export const RecipeList = props => (
-    <List {...props} filters={<RecipeFilter/>} >
+    <List {...props} filters={<RecipeFilter/>} bulkActionButtons={false}>
         <Datagrid rowClick="show">
             <TextField source="title" />
             <StarRow source="rating"/>

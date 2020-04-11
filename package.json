@@ -16,7 +16,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
-  "homepage": "https://mathiastj.github.io/recipes-frontend",
+  "homepage": "https://mathiastj.github.io/recipes_frontend/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
