@@ -1,3 +1,5 @@
+import MenuBookIcon from '@material-ui/icons/MenuBook';
+import CategoryIcon from '@material-ui/icons/Category';
 import React, {Component} from 'react';
 import buildHasuraProvider from 'ra-data-hasura-graphql';
 import { Admin, Resource, EditGuesser, ListGuesser, ShowGuesser } from 'react-admin';
@@ -60,8 +62,8 @@ class App extends Component {
         dataProvider={dataProvider}
         authProvider={authProvider}
         >
-          <Resource name="recipes" show={RecipeShow} list={RecipeList} edit={RecipeEdit} create={RecipeCreate}/>
-          <Resource name="categories" show={CategoryShow} list={CategoryList} edit={CategoryEdit} create={CategoryCreate} />
+          <Resource name="recipes" show={RecipeShow} list={RecipeList} edit={RecipeEdit} create={RecipeCreate} icon={MenuBookIcon}/>
+          <Resource name="categories" show={CategoryShow} list={CategoryList} edit={CategoryEdit} create={CategoryCreate} icon={CategoryIcon}/>
         </Admin>
       );
   }
