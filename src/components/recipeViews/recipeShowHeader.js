@@ -25,8 +25,6 @@ const useStyles = makeStyles({
 });
 
 const RecipeShowHeader = props => {
-  console.log('header')
-  console.log(props)
     const classes = useStyles();
     return (
       <div className={classes.root}>
