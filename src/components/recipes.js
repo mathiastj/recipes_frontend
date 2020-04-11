@@ -1,13 +1,9 @@
 import React from 'react';
-import { DatagridBody, ReferenceField, Filter, SelectInput, ReferenceInput, Show, NumberInput, RichTextField, ShowView, SimpleShowLayout, Create, Edit, TextInput, SimpleForm, NumberField, List, Datagrid, TextField } from 'react-admin';
+import { ReferenceField, Filter, SelectInput, ReferenceInput, Show, NumberInput, RichTextField, ShowView, SimpleShowLayout, Create, Edit, TextInput, SimpleForm, NumberField, List, Datagrid, TextField } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
 import RecipeShowTitle from './recipeViews/recipeShowTitle'
 import RecipeShowHeader from './recipeViews/recipeShowHeader'
-import Stars from './stars'
-import { MAX_STARS } from '../constants/stars'
-import TableCell from '@material-ui/core/TableCell';
-import TableRow from '@material-ui/core/TableRow';
-import Checkbox from '@material-ui/core/Checkbox';
+import StarRow from './starRow'
 
 const PostTitle = ({ record }) => {
   return <span>{record ? `${record.title}` : ''}</span>;
@@ -25,49 +21,15 @@ const RecipeFilter = (props) => (
 
 export const RecipeList = props => (
     <List {...props} filters={<RecipeFilter/>} >
-        <MyDatagrid rowClick="show">
+        <Datagrid rowClick="show">
             <TextField source="title" />
-            {/* <StarRow {...props} /> */}
-            <NumberField source="rating" />
+            <StarRow source="rating"/>
             <NumberField source="servings" />
             <ReferenceField source="category_id" reference="categories">
               <TextField source="name" />
             </ReferenceField>
-        </MyDatagrid>
+        </Datagrid>
     </List>
-);
-
-const MyDatagridBody = props => <DatagridBody {...props} row={<MyDatagridRow />} />;
-const MyDatagrid = props => <Datagrid {...props} body={<MyDatagridBody />} />;
-
-const MyDatagridRow = ({ record, resource, id, onToggleItem, children, selected, basePath }) => (
-  <TableRow key={id}>
-      {/* first column: selection checkbox */}
-      <TableCell padding="none">
-            {<Checkbox
-                checked={selected}
-                onClick={() => onToggleItem(id)}
-            />}
-        </TableCell>
-      {/* data columns based on children */}
-      {React.Children.map(children, field => {
-        if (field.props.source === 'rating') {
-          return (
-            <TableCell>
-              <Stars rating={record.rating}/>
-            </TableCell>
-          )
-        }
-        return (
-          <TableCell key={`${id}-${field.props.source}`}>
-              {React.cloneElement(field, {
-                  record,
-                  basePath,
-                  resource,
-              })}
-          </TableCell>
-      )})}
-  </TableRow>
 );
 
 
@@ -93,8 +55,8 @@ export const RecipeEdit = props => (
           <ReferenceInput source="category_id" reference="categories">
                <SelectInput optionText="name" />
             </ReferenceInput>
-          <RichTextInput multiline source="ingredients" />
-          <RichTextInput multiline source="directions" />
+          <RichTextInput source="ingredients" />
+          <RichTextInput source="directions" />
       </SimpleForm>
   </Edit>
 );

@@ -13,12 +13,12 @@ class Stars extends Component {
     if (whiteStars < 0) {
       whiteStars = 0
     }
-    return (<span>
+    return (rating ? <span>
             {[...Array(blackStars)].map(ele => <span>★</span>
               )}
             {[...Array(whiteStars)].map(ele => <span>☆</span>
               )}
-          </span>)
+          </span> : '')
   }
 }
 
