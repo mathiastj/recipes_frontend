@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import { useTranslate } from 'react-admin'
 import Stars from '../stars'
 
 const useStyles = makeStyles({
@@ -25,6 +26,7 @@ const useStyles = makeStyles({
 })
 
 const RecipeShowHeader = (props) => {
+  const translate = useTranslate()
   const classes = useStyles()
   const { record } = props
   const { rating, servings, duration_free } = record
@@ -33,7 +35,9 @@ const RecipeShowHeader = (props) => {
       <span className={classes['text-left']}>
         <Stars rating={rating} />
       </span>
-      <span className={classes['text-center']}>{servings} servings</span>
+      <span className={classes['text-center']}>
+        {servings} {translate('myroot.servings')}
+      </span>
       <span className={classes['text-right']}>{duration_free}</span>
     </div>
   )

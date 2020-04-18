@@ -37,9 +37,9 @@ const validateRating = [number(), minValue(1), maxValue(5)]
 
 const RecipeFilter = (props) => (
   <Filter {...props}>
-    <TextInput label="Search titles" source="title" alwaysOn />
-    <TextInput label="Search ingredients" source="ingredients" alwaysOn />
-    <ReferenceInput label="Category" source="category_id" reference="categories" allowEmpty>
+    <TextInput source="title" alwaysOn />
+    <TextInput source="ingredients" alwaysOn />
+    <ReferenceInput source="category_id" reference="categories" allowEmpty>
       <SelectInput optionText="name" />
     </ReferenceInput>
   </Filter>
@@ -79,7 +79,6 @@ const toolbarOptions = [
   [{ direction: 'rtl' }], // text direction
 
   [{ size: ['small', false, 'large', 'huge'] }], // custom dropdown
-  // [{ header: [1, 2, 3, 4, 5, 6, false] }],
 
   [{ color: [] }, { background: [] }], // dropdown with defaults from theme
   [{ font: [] }],
@@ -92,7 +91,7 @@ const RecipeForm = () => (
     <TextInput source="title" />
     <NumberInput source="rating" validate={validateRating} />
     <NumberInput source="servings" />
-    <TextInput source="duration_free" label="Duration" />
+    <TextInput source="duration_free" />
     <ReferenceInput source="category_id" reference="categories">
       <SelectInput optionText="name" />
     </ReferenceInput>
