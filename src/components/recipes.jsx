@@ -79,6 +79,14 @@ const RecipeForm = () => (
   </SimpleForm>
 )
 
-export const RecipeEdit = (props) => <Edit {...props}>{RecipeForm()}</Edit>
+export const RecipeEdit = (props) => (
+  <Edit {...props} title={<PostTitle />}>
+    {RecipeForm()}
+  </Edit>
+)
 
-export const RecipeCreate = (props) => <Create {...props}>{RecipeForm()}</Create>
+export const RecipeCreate = (props) => (
+  <Create {...props} title={<PostTitle />}>
+    {RecipeForm()}
+  </Create>
+)
