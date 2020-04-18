@@ -21,6 +21,7 @@ import {
   List,
   Datagrid,
   TextField,
+  Pagination,
 } from 'react-admin'
 import RichTextInput from 'ra-input-rich-text'
 import styles from './recipes.css'
@@ -44,8 +45,10 @@ const RecipeFilter = (props) => (
   </Filter>
 )
 
+const PostPagination = (props) => <Pagination rowsPerPageOptions={[10, 25, 50, 100]} {...props} />
+
 export const RecipeList = (props) => (
-  <List {...props} filters={<RecipeFilter />} bulkActionButtons={false}>
+  <List {...props} filters={<RecipeFilter />} bulkActionButtons={false} perPage={100} pagination={<PostPagination />}>
     <Datagrid rowClick="show">
       <TextField source="title" />
       <StarRow source="rating" />
