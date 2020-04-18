@@ -29,6 +29,7 @@ import StarRow from './starRow'
 const PostTitle = ({ record }) => {
   return <span>{record ? `${record.title}` : ''}</span>
 }
+const validateRating = [number(), minValue(1), maxValue(5)]
 
 const RecipeFilter = (props) => (
   <Filter {...props}>
@@ -64,31 +65,20 @@ export const RecipeShow = (props) => (
   </Show>
 )
 
-const validateRating = [number(), minValue(1), maxValue(5)]
-
-export const RecipeEdit = (props) => (
-  <Edit {...props}>
-    <SimpleForm>
-      <TextInput source="title" />
-      <NumberInput source="rating" validate={validateRating} />
-      <NumberInput source="servings" />
-      <TextInput source="duration_free" label="Duration" />
-      <ReferenceInput source="category_id" reference="categories">
-        <SelectInput optionText="name" />
-      </ReferenceInput>
-      <RichTextInput source="ingredients" />
-      <RichTextInput source="directions" />
-    </SimpleForm>
-  </Edit>
+const RecipeForm = () => (
+  <SimpleForm>
+    <TextInput source="title" />
+    <NumberInput source="rating" validate={validateRating} />
+    <NumberInput source="servings" />
+    <TextInput source="duration_free" label="Duration" />
+    <ReferenceInput source="category_id" reference="categories">
+      <SelectInput optionText="name" />
+    </ReferenceInput>
+    <RichTextInput source="ingredients" />
+    <RichTextInput source="directions" />
+  </SimpleForm>
 )
 
-export const RecipeCreate = (props) => (
-  <Create {...props}>
-    <SimpleForm>
-      <NumberInput source="rating" />
-      <TextInput multiline source="ingredients" />
-      <TextInput source="title" />
-      <TextInput multiline source="directions" />
-    </SimpleForm>
-  </Create>
-)
+export const RecipeEdit = (props) => <Edit {...props}>{RecipeForm()}</Edit>
+
+export const RecipeCreate = (props) => <Create {...props}>{RecipeForm()}</Create>
