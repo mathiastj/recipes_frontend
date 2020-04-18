@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     width: '33%',
   },
   root: {
-    paddingBlock: '2rem',
+    paddingBlock: '3rem',
   },
 })
 

@@ -26,6 +26,7 @@ import RichTextInput from 'ra-input-rich-text'
 import styles from './recipes.css'
 import RecipeShowTitle from './recipeViews/recipeShowTitle'
 import RecipeShowHeader from './recipeViews/recipeShowHeader'
+import RecipeShowRichText from './recipeViews/recipeShowRichText'
 import StarRow from './starRow'
 
 const PostTitle = ({ record }) => {
@@ -61,8 +62,8 @@ export const RecipeShow = (props) => (
     <SimpleShowLayout>
       <RecipeShowTitle source="title" />
       <RecipeShowHeader />
-      <RichTextField source="ingredients" />
-      <RichTextField source="directions" />
+      <RecipeShowRichText source="ingredients" {...props} />
+      <RecipeShowRichText source="directions" {...props} />
     </SimpleShowLayout>
   </Show>
 )
