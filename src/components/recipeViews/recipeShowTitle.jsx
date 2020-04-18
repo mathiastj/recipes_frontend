@@ -5,6 +5,7 @@ const useStyles = makeStyles({
   text: {
     fontWeight: 'bold',
     alignContent: 'center',
+    fontSize: '2rem',
   },
   root: {
     'text-align': 'center',
@@ -16,7 +17,7 @@ const RecipeShowTitle = (props) => {
   const { record } = props
   return (
     <div className={classes.root}>
-      <span className={classes.text}>{props.record.title}</span>
+      <span className={classes.text}>{record.title}</span>
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import {
   minValue,
@@ -22,6 +23,7 @@ import {
   TextField,
 } from 'react-admin'
 import RichTextInput from 'ra-input-rich-text'
+import styles from './recipes.css'
 import RecipeShowTitle from './recipeViews/recipeShowTitle'
 import RecipeShowHeader from './recipeViews/recipeShowHeader'
 import StarRow from './starRow'
@@ -65,6 +67,22 @@ export const RecipeShow = (props) => (
   </Show>
 )
 
+const toolbarOptions = [
+  ['bold', 'italic', 'underline', 'strike'], // toggled buttons
+
+  [{ list: 'ordered' }, { list: 'bullet' }],
+  [{ indent: '-1' }, { indent: '+1' }], // outdent/indent
+  [{ direction: 'rtl' }], // text direction
+
+  [{ size: ['small', false, 'large', 'huge'] }], // custom dropdown
+  // [{ header: [1, 2, 3, 4, 5, 6, false] }],
+
+  [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+  [{ font: [] }],
+  [{ align: [] }],
+  ['clean'],
+]
+
 const RecipeForm = () => (
   <SimpleForm>
     <TextInput source="title" />
@@ -74,8 +92,8 @@ const RecipeForm = () => (
     <ReferenceInput source="category_id" reference="categories">
       <SelectInput optionText="name" />
     </ReferenceInput>
-    <RichTextInput source="ingredients" />
-    <RichTextInput source="directions" />
+    <RichTextInput source="ingredients" toolbar={toolbarOptions} />
+    <RichTextInput source="directions" toolbar={toolbarOptions} />
   </SimpleForm>
 )
 
