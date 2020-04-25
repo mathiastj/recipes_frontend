@@ -35,10 +35,12 @@ const RecipeShowHeader = (props) => {
       <span className={classes['text-left']}>
         <Stars rating={rating} />
       </span>
-      <span className={classes['text-center']}>
-        {servings} {translate('myroot.servings')}
-      </span>
-      <span className={classes['text-right']}>{duration_free}</span>
+      {servings && (
+        <span className={classes['text-center']}>
+          {servings} {translate('myroot.servings')}
+        </span>
+      )}
+      {duration_free && <span className={classes['text-right']}>{duration_free}</span>}
     </div>
   )
 }
