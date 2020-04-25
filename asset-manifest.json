@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/recipes_frontend/static/css/main.e255bc41.chunk.css",
-    "main.js": "/recipes_frontend/static/js/main.0c109b37.chunk.js",
-    "main.js.map": "/recipes_frontend/static/js/main.0c109b37.chunk.js.map",
+    "main.js": "/recipes_frontend/static/js/main.87c1d819.chunk.js",
+    "main.js.map": "/recipes_frontend/static/js/main.87c1d819.chunk.js.map",
     "runtime-main.js": "/recipes_frontend/static/js/runtime-main.4fb83141.js",
     "runtime-main.js.map": "/recipes_frontend/static/js/runtime-main.4fb83141.js.map",
     "static/js/2.c745f4b9.chunk.js": "/recipes_frontend/static/js/2.c745f4b9.chunk.js",
     "static/js/2.c745f4b9.chunk.js.map": "/recipes_frontend/static/js/2.c745f4b9.chunk.js.map",
     "index.html": "/recipes_frontend/index.html",
-    "precache-manifest.5182c2e8355795c91baabac64358f9e6.js": "/recipes_frontend/precache-manifest.5182c2e8355795c91baabac64358f9e6.js",
+    "precache-manifest.3caed3b3a1af7522661c06e3dde10d02.js": "/recipes_frontend/precache-manifest.3caed3b3a1af7522661c06e3dde10d02.js",
     "service-worker.js": "/recipes_frontend/service-worker.js",
     "static/css/main.e255bc41.chunk.css.map": "/recipes_frontend/static/css/main.e255bc41.chunk.css.map",
     "static/js/2.c745f4b9.chunk.js.LICENSE.txt": "/recipes_frontend/static/js/2.c745f4b9.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.4fb83141.js",
     "static/js/2.c745f4b9.chunk.js",
     "static/css/main.e255bc41.chunk.css",
-    "static/js/main.0c109b37.chunk.js"
+    "static/js/main.87c1d819.chunk.js"
   ]
 }
