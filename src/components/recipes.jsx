@@ -67,6 +67,7 @@ export const RecipeShow = (props) => (
       <RecipeShowHeader />
       <RecipeShowRichText source="ingredients" {...props} />
       <RecipeShowRichText source="directions" {...props} />
+      <TextField source="source" />
     </SimpleShowLayout>
   </Show>
 )
@@ -97,6 +98,7 @@ const RecipeForm = () => (
     </ReferenceInput>
     <RichTextInput source="ingredients" toolbar={toolbarOptions} />
     <RichTextInput source="directions" toolbar={toolbarOptions} />
+    <TextInput source="source" />
   </SimpleForm>
 )
 

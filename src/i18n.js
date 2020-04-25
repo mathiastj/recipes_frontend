@@ -18,6 +18,7 @@ export const domainMessages = {
         duration_free: 'Tid',
         ingredients: 'Ingredienser',
         directions: 'Fremgangsmåde',
+        source: 'Kilde',
       },
     },
     categories: {
