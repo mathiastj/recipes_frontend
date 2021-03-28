@@ -15,11 +15,7 @@
     "react-admin": "^3.13.5",
     "react-apollo": "^3.1.4",
     "react-dom": "^16.13.1",
-<<<<<<< HEAD
     "react-scripts": "^4.0.3"
-=======
-    "react-scripts": "^3.4.3"
->>>>>>> 625f0021c8bac3764c11340d691ea6e413de9837
   },
   "homepage": "https://mathiastj.github.io/recipes_frontend/",
   "scripts": {
