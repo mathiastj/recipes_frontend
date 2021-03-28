@@ -18,6 +18,7 @@ export const domainMessages = {
         duration_free: 'Tid',
         ingredients: 'Ingredienser',
         directions: 'Fremgangsmåde',
+        season: 'Sæson',
         source: 'Kilde',
       },
     },
@@ -32,5 +33,6 @@ export const domainMessages = {
   },
   myroot: {
     servings: 'personer',
+    search: 'Søg',
   },
 }
