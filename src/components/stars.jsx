@@ -15,11 +15,11 @@ class Stars extends PureComponent {
     }
     return rating ? (
       <span>
-        {[...Array(blackStars)].map(() => (
-          <span>★</span>
+        {[...Array(blackStars)].map((_x, index) => (
+          <span key={index}>★</span>
         ))}
-        {[...Array(whiteStars)].map(() => (
-          <span>☆</span>
+        {[...Array(whiteStars)].map((_x, index) => (
+          <span key={index}>☆</span>
         ))}
       </span>
     ) : (

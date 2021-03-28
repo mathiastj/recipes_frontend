@@ -2,6 +2,7 @@ import danishMessages from 'ra-language-danish'
 
 // Add missing translations to the Danish standard
 danishMessages.ra.navigation.page_rows_per_page = 'Rækker per side'
+danishMessages.ra.navigation.skip_nav = 'Skip nav' // not sure what this is
 danishMessages.ra.auth.user_menu = 'Profil'
 
 export const danishMsgs = danishMessages
@@ -34,5 +35,6 @@ export const domainMessages = {
   myroot: {
     servings: 'personer',
     search: 'Søg',
+    extra_ingredient: 'Ekstra ingrediens',
   },
 }
