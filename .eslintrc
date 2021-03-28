@@ -7,7 +7,7 @@
     "node": true,
   },
   "parser": "babel-eslint",
-  "extends": ["prettier", "prettier/react"],
+  "extends": ["prettier", "prettier/react","plugin:react/recommended"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly",
