@@ -1,3 +1,6 @@
+Deprecated after Heroku shut down their free tier.
+Replaced by: https://github.com/mathiastj/recipes-frontend which uses supabase as the backend
+
 # Recipes Frontend
 
 My personal cooking recipes, not publicly available.
